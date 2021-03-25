@@ -28,27 +28,39 @@ button {
   display: none;
 }
 #btn1{
-  background:lightgreen;
+  background:limegreen;
 }
 
 #btn1:active, #btn1.lit{
-  background:green;
+  background:mediumaquamarine;
 }
 #btn2{
-  background:lightblue;
+  background:aliceblue;
 }
 #btn2:active, #btn2.lit{
-  background:blue;
+  background:darkblue;
 }
 #btn3{
-  background:pink;
+  background: gold;
 }
 #btn3:active, #btn3.lit{
-  background:red;
+  background: goldenrod;
 }
 #btn4{
-  background: lightyellow;
+  background: crimson;
 }
 #btn4:active, #btn4.lit{
-  background:yellow;
+  background:darkred;
+}
+#btn5{
+  background: lightSalmon;
+}
+#btn5:active, #btn5.lit{
+  background:purple;
+}
+#btn6{
+  background: lightSteelBlue;
+}
+#btn6:active, #btn6.lit{
+  background: lime;
 }

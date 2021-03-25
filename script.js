@@ -5,17 +5,20 @@ const nextClueWaitTime = 1000; //wait time before playing sequence
 
 
 //Global Variables
-var pattern = [2,2,4,3,2,1,2,4];
+var pattern = [2,5,4,6,3,1,2,4];
 var progress = 0;
 var gamePlaying = false;
 var tonePlaying = false;
 var volume = 0.5; //between 0.0 and 1.0
 var guessCounter =0;
+var mistakeNumber =0;
+
 
 function startGame(){
     //initialize game variables
     progress = 0;
     gamePlaying = true;
+    mistakeNumber = 0;
   
     //swap Start and Stop btns
     document.getElementById("startBtn").classList.add("hidden");
@@ -33,7 +36,10 @@ const freqMap = {
   1: 600.6,
   2: 250.6,
   3: 400,
-  4: 466.2
+  4: 466.2,
+  5: 700,
+  6: 350
+  
 }
 function playTone(btn,len){ 
   o.frequency.value = freqMap[btn]
@@ -96,6 +102,7 @@ function playClueSequence(){
 function loseGame(){
   stopGame();
   alert("Game Over. You lost.");
+
 }
 
 function winGame(){
@@ -109,8 +116,14 @@ function guess(btn){
     return;
   }
   //game logic
+  
   if(btn != pattern[guessCounter]){
+    if(mistakeNumber == 2){
     loseGame();
+    }else{ 
+    mistakeNumber+=1;
+    alert("You have made "+ mistakeNumber+" mistakes");
+    playClueSequence();}
   }
   else{
     if(progress == guessCounter){
